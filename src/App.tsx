@@ -13,8 +13,8 @@ import FAQSection from "./components/FAQSection";
 import Footer from "./components/Footer";
 import gdgLogo from "./assets/webp2logos/gdglogofinall.webp";
 import gdgLogo2 from "./assets/webp2logos/gdgtextlogo.webp";
+import Preloader from "./components/Preloader"; // Import preloader component
 
-// Move script loading to useEffect hook directly in the App component.
 const useDevfolioScript = () => {
   useEffect(() => {
     const script = document.createElement("script");
@@ -29,31 +29,46 @@ const useDevfolioScript = () => {
 };
 
 function App() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 3000); // Show preloader for 3 seconds
+    return () => clearTimeout(timer);
+  }, []);
+
   useDevfolioScript();
 
   return (
     <div className="min-h-screen bg-gradient-mesh text-white font-space">
-      <ParticleBackground />
-      <Navbar />
-      <Element name="home">
-        <HeroSection />
-      </Element>
-      <Element name="about">
-        <HackSyncAbout />
-      </Element>
-      <Element name="domains">
-        <DomainsSection />
-      </Element>
-      <Element name="timeline">
-        <EventTimeline />
-      </Element>
-      <Element name="sponsors">
-        <SponsorsSection />
-      </Element>
-      <Element name="faq">
-        <FAQSection />
-      </Element>
-      <Footer />
+      {!isLoaded ? (
+        <Preloader />
+      ) : (
+        <>
+          <ParticleBackground />
+          <Navbar />
+          <Element name="home">
+            <HeroSection />
+          </Element>
+          <Element name="about">
+            <HackSyncAbout />
+          </Element>
+          <Element name="domains">
+            <DomainsSection />
+          </Element>
+          <Element name="timeline">
+            <EventTimeline />
+          </Element>
+          <Element name="sponsors">
+            <SponsorsSection />
+          </Element>
+          <Element name="faq">
+            <FAQSection />
+          </Element>
+          <Footer />
+        </>
+      )}
     </div>
   );
 }
@@ -80,13 +95,13 @@ const Navbar = React.memo(() => {
               src={gdgLogo}
               alt="GDG Logo"
               className="h-14 w-auto"
-              loading="lazy" // Lazy load the logo for performance
+              loading="lazy"
             />
             <img
               src={gdgLogo2}
               alt="GDG Logo"
               className="h-24 w-auto"
-              loading="lazy" // Lazy load the logo for performance
+              loading="lazy"
             />
           </div>
 
@@ -131,7 +146,7 @@ const Navbar = React.memo(() => {
               duration={600}
               offset={-70}
               onClick={() => setIsOpen(false)}
-              className="cursor-pointer text-white text-lg hover:text-yellow-500 transition"
+              className="text-white text-xl hover:text-yellow-500"
             >
               {item.name}
             </ScrollLink>
@@ -143,6 +158,347 @@ const Navbar = React.memo(() => {
 });
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+// everythin good old preloader
+
+// import React, { useState, useEffect } from "react";
+// import { Link as ScrollLink, Element } from "react-scroll";
+// import { motion } from "framer-motion";
+// import { Menu, X } from "lucide-react";
+// import ParticleBackground from "./components/ParticleBackground";
+// import HeroSection from "./components/herosection";
+// import HackSyncAbout from "./components/textbox";
+// import DestinationSection from "./components/destination";
+// import DomainsSection from "./components/DomainSection";
+// import EventTimeline from "./components/EventTimeline";
+// import SponsorsSection from "./components/sponsor";
+// import FAQSection from "./components/FAQSection";
+// import Footer from "./components/Footer";
+// import gdgLogo from "./assets/webp2logos/gdglogofinall.webp";
+// import gdgLogo2 from "./assets/webp2logos/gdgtextlogo.webp";
+
+// // Move script loading to useEffect hook directly in the App component.
+// const useDevfolioScript = () => {
+//   useEffect(() => {
+//     const script = document.createElement("script");
+//     script.src = "https://apply.devfolio.co/v2/sdk.js";
+//     script.async = true;
+//     script.defer = true;
+//     document.body.appendChild(script);
+//     return () => {
+//       document.body.removeChild(script);
+//     };
+//   }, []);
+// };
+
+// // Preloader component
+// const Preloader = () => (
+//   <div className="preloader">
+//     <div className="loading-text">Website is Loading...</div>
+//   </div>
+// );
+
+// function App() {
+//   const [isLoaded, setIsLoaded] = useState(false);
+
+//   // Simulating loading delay
+//   useEffect(() => {
+//     const timer = setTimeout(() => {
+//       setIsLoaded(true);
+//     }, 7000); // Show preloader for 3 seconds
+//     return () => clearTimeout(timer);
+//   }, []);
+
+//   useDevfolioScript();
+
+//   return (
+//     <div className="min-h-screen bg-gradient-mesh text-white font-space">
+//       {!isLoaded ? (
+//         <Preloader />
+//       ) : (
+//         <>
+//           <ParticleBackground />
+//           <Navbar />
+//           <Element name="home">
+//             <HeroSection />
+//           </Element>
+//           <Element name="about">
+//             <HackSyncAbout />
+//           </Element>
+//           <Element name="domains">
+//             <DomainsSection />
+//           </Element>
+//           <Element name="timeline">
+//             <EventTimeline />
+//           </Element>
+//           <Element name="sponsors">
+//             <SponsorsSection />
+//           </Element>
+//           <Element name="faq">
+//             <FAQSection />
+//           </Element>
+//           <Footer />
+//         </>
+//       )}
+//     </div>
+//   );
+// }
+
+// const Navbar = React.memo(() => {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const toggleMenu = () => setIsOpen(!isOpen);
+
+//   const menuItems = [
+//     { name: "Home", path: "home" },
+//     { name: "About", path: "about" },
+//     { name: "Domains", path: "domains" },
+//     { name: "Timeline", path: "timeline" },
+//     { name: "Sponsors", path: "sponsors" },
+//     { name: "FAQ", path: "faq" },
+//   ];
+
+//   return (
+//     <nav className="fixed top-0 left-0 w-full bg-black bg-opacity-10 backdrop-blur-md shadow-md z-50">
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//         <div className="flex justify-between items-center py-0">
+//           <div className="flex items-center space-x-3">
+//             <img
+//               src={gdgLogo}
+//               alt="GDG Logo"
+//               className="h-14 w-auto"
+//               loading="lazy" // Lazy load the logo for performance
+//             />
+//             <img
+//               src={gdgLogo2}
+//               alt="GDG Logo"
+//               className="h-24 w-auto"
+//               loading="lazy" // Lazy load the logo for performance
+//             />
+//           </div>
+
+//           <div className="hidden md:flex space-x-6">
+//             {menuItems.map((item) => (
+//               <motion.div key={item.path} whileHover={{ scale: 1.1 }}>
+//                 <ScrollLink
+//                   to={item.path}
+//                   smooth={true}
+//                   duration={600}
+//                   offset={-70}
+//                   className="cursor-pointer text-white hover:text-yellow-500 transition"
+//                 >
+//                   {item.name}
+//                 </ScrollLink>
+//               </motion.div>
+//             ))}
+//           </div>
+//           <div className="md:hidden">
+//             <button onClick={toggleMenu} className="text-white focus:outline-none">
+//               {isOpen ? <X size={28} /> : <Menu size={28} />}
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Mobile Menu */}
+//       <motion.div
+//         initial={{ opacity: 0, y: -20 }}
+//         animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -20 }}
+//         transition={{ duration: 0.3 }}
+//         className={`absolute top-full left-0 w-full bg-black bg-opacity-90 ${
+//           isOpen ? "block" : "hidden"
+//         } md:hidden`}
+//       >
+//         <div className="flex flex-col items-center py-4 space-y-4">
+//           {menuItems.map((item) => (
+//             <ScrollLink
+//               key={item.path}
+//               to={item.path}
+//               smooth={true}
+//               duration={600}
+//               offset={-70}
+//               onClick={() => setIsOpen(false)}
+//               className="cursor-pointer text-white text-lg hover:text-yellow-500 transition"
+//             >
+//               {item.name}
+//             </ScrollLink>
+//           ))}
+//         </div>
+//       </motion.div>
+//     </nav>
+//   );
+// });
+
+// export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+// without preloader
+
+// import React, { useState, useEffect } from "react";
+// import { Link as ScrollLink, Element } from "react-scroll";
+// import { motion } from "framer-motion";
+// import { Menu, X } from "lucide-react";
+// import ParticleBackground from "./components/ParticleBackground";
+// import HeroSection from "./components/herosection";
+// import HackSyncAbout from "./components/textbox";
+// import DestinationSection from "./components/destination";
+// import DomainsSection from "./components/DomainSection";
+// import EventTimeline from "./components/EventTimeline";
+// import SponsorsSection from "./components/sponsor";
+// import FAQSection from "./components/FAQSection";
+// import Footer from "./components/Footer";
+// import gdgLogo from "./assets/webp2logos/gdglogofinall.webp";
+// import gdgLogo2 from "./assets/webp2logos/gdgtextlogo.webp";
+
+// // Move script loading to useEffect hook directly in the App component.
+// const useDevfolioScript = () => {
+//   useEffect(() => {
+//     const script = document.createElement("script");
+//     script.src = "https://apply.devfolio.co/v2/sdk.js";
+//     script.async = true;
+//     script.defer = true;
+//     document.body.appendChild(script);
+//     return () => {
+//       document.body.removeChild(script);
+//     };
+//   }, []);
+// };
+
+// function App() {
+//   useDevfolioScript();
+
+//   return (
+//     <div className="min-h-screen bg-gradient-mesh text-white font-space">
+//       <ParticleBackground />
+//       <Navbar />
+//       <Element name="home">
+//         <HeroSection />
+//       </Element>
+//       <Element name="about">
+//         <HackSyncAbout />
+//       </Element>
+//       <Element name="domains">
+//         <DomainsSection />
+//       </Element>
+//       <Element name="timeline">
+//         <EventTimeline />
+//       </Element>
+//       <Element name="sponsors">
+//         <SponsorsSection />
+//       </Element>
+//       <Element name="faq">
+//         <FAQSection />
+//       </Element>
+//       <Footer />
+//     </div>
+//   );
+// }
+
+// const Navbar = React.memo(() => {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const toggleMenu = () => setIsOpen(!isOpen);
+
+//   const menuItems = [
+//     { name: "Home", path: "home" },
+//     { name: "About", path: "about" },
+//     { name: "Domains", path: "domains" },
+//     { name: "Timeline", path: "timeline" },
+//     { name: "Sponsors", path: "sponsors" },
+//     { name: "FAQ", path: "faq" },
+//   ];
+
+//   return (
+//     <nav className="fixed top-0 left-0 w-full bg-black bg-opacity-10 backdrop-blur-md shadow-md z-50">
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//         <div className="flex justify-between items-center py-0">
+//           <div className="flex items-center space-x-3">
+//             <img
+//               src={gdgLogo}
+//               alt="GDG Logo"
+//               className="h-14 w-auto"
+//               loading="lazy" // Lazy load the logo for performance
+//             />
+//             <img
+//               src={gdgLogo2}
+//               alt="GDG Logo"
+//               className="h-24 w-auto"
+//               loading="lazy" // Lazy load the logo for performance
+//             />
+//           </div>
+
+//           <div className="hidden md:flex space-x-6">
+//             {menuItems.map((item) => (
+//               <motion.div key={item.path} whileHover={{ scale: 1.1 }}>
+//                 <ScrollLink
+//                   to={item.path}
+//                   smooth={true}
+//                   duration={600}
+//                   offset={-70}
+//                   className="cursor-pointer text-white hover:text-yellow-500 transition"
+//                 >
+//                   {item.name}
+//                 </ScrollLink>
+//               </motion.div>
+//             ))}
+//           </div>
+//           <div className="md:hidden">
+//             <button onClick={toggleMenu} className="text-white focus:outline-none">
+//               {isOpen ? <X size={28} /> : <Menu size={28} />}
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Mobile Menu */}
+//       <motion.div
+//         initial={{ opacity: 0, y: -20 }}
+//         animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -20 }}
+//         transition={{ duration: 0.3 }}
+//         className={`absolute top-full left-0 w-full bg-black bg-opacity-90 ${
+//           isOpen ? "block" : "hidden"
+//         } md:hidden`}
+//       >
+//         <div className="flex flex-col items-center py-4 space-y-4">
+//           {menuItems.map((item) => (
+//             <ScrollLink
+//               key={item.path}
+//               to={item.path}
+//               smooth={true}
+//               duration={600}
+//               offset={-70}
+//               onClick={() => setIsOpen(false)}
+//               className="cursor-pointer text-white text-lg hover:text-yellow-500 transition"
+//             >
+//               {item.name}
+//             </ScrollLink>
+//           ))}
+//         </div>
+//       </motion.div>
+//     </nav>
+//   );
+// });
+
+// export default App;
 
 
 
