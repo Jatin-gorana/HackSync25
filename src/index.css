@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #E4B94D;
+    --secondary: #1C4B82;
+  }
+}
+
+body {
+  background: #000;
+  color: #fff;
+}
+
+.bg-gradient-mesh {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)),
+              url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&q=80') center/cover no-repeat fixed;
+}
+
+.tesseract-grid {
+  background-image: 
+    linear-gradient(rgba(228, 185, 77, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(228, 185, 77, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: -1px -1px;
+}
+
+.space-dust {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.gargantua-glow {
+  box-shadow: 0 0 50px rgba(228, 185, 77, 0.2);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes floatParticles {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(var(--tx), var(--ty));
+    opacity: 0.5;
+  }
+}
