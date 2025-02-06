@@ -15,19 +15,19 @@ type Sponsor = {
 const platinumSponsors: Sponsor[] = [
   {
     name: "Devfolio",
-    alt: "DEVFOLIO",
+    alt: "DEVFOLIO LOGO",
     logo: devfolio,
     website: "https://devfolio.co",
   },
   {
     name: "ETHIndia",
-    alt: "ETHINDIA",
+    alt: "ETHINDIA LOGO",
     logo: ethindia,
     website: "https://ethindia.co",
   },
   {
     name: "Polygon",
-    alt: "POLYGON",
+    alt: "POLYGON LOGO",
     logo: polygon,
     website: "https://polygon.technology",
   },
