@@ -11,30 +11,30 @@ const fadeIn = {
 const EventTimeline: React.FC = () => {
   const timeline = [
     {
-      day: "Day 1",
+      day: "Day 1 - 22/02/2025",
       events: [
         { time: "10:00 AM", title: "Inauguration Ceremony" },
         { time: "11:00 AM", title: "Hacking Begins" },
       ],
     },
     {
-      day: "Day 2",
+      day: "Day 2 - 23/02/2025",
       events: [
         { time: "06:00 PM", title: "Mentorship Sessions" },
         { time: "10:00 PM", title: "Final Hour Alert" },
       ],
     },
     {
-      day: "Day 3",
+      day: "Day 3 - 24/02/2025",
       events: [
-        { time: "10:00 AM", title: "Online Judging Starts" },
+        { time: "11:00 AM", title: "Online Judging Starts" },
         { time: "7:00 PM", title: "Top 10 Shortlisted Teams Announcement" },
       ],
     },
     {
-      day: "Day 4",
+      day: "Day 4 - 25/02/2025",
       events: [
-        { time: "10:00 AM", title: "Shortlisted Teams Offline Judging Starts" },
+        { time: "11:00 AM", title: "Shortlisted Teams Offline Judging Starts" },
         { time: "5:00 PM", title: "Winners Announcement & Closing Ceremony" },
       ],
     },

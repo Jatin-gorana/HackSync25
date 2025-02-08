@@ -13,14 +13,19 @@ const faqs = [
       "Registrations close on 15th February 2025 at 11:59 PM IST.",
   },
   {
-    question: "How are teams formed?",
+    question: "Can I participate individually?",
     answer:
-      "Teams of 2-4 members. You can come with a team or find teammates during team formation.",
+      "Teams of 2-4 members. You can come with a team or find teammates via whatsapp group given below.",
   },
   {
-    question: "How can I register for HackSync 2025 and is there a registration fee?",
+    question: "How can I register for 'HackSync 2025' and is there a registration fee?",
     answer:
       "You can register for HackSync 2025 through Devfolio. No participation fees are required; the hackathon is completely free.",
+  },
+  {
+    question: "Can we form intercollege team?",
+    answer:
+      "Yes Intercollege teams are allowed.",
   },
   {
     question: "Will there be prizes?",

@@ -9,7 +9,7 @@ const socialLinks = [
   { Icon: FaInstagram, href: "https://www.instagram.com/gdg_tsec/" },
   { Icon: FaTwitter, href: "https://x.com/GdscTsec" },
   { Icon: FaLinkedin, href: "https://www.linkedin.com/company/gdg-tsec/" },
-  { Icon: FaWhatsapp, href: "https://chat.whatsapp.com/LIzMQUQ1GDxEuBdfULoTwG" },
+  { Icon: FaWhatsapp, href: "https://chat.whatsapp.com/EO2OvVOMhdwIFKOVwwyEyq" },
 ];
 
 const quickLinks = [
