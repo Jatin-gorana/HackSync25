@@ -4,6 +4,8 @@ import devfolio from "../assets/webp/Devfolio_Logo-White.webp";
 import ethindia from "../assets/webp/ethindia-light.webp";
 import polygon from "../assets/webp/Polygon_Logo-White.webp";
 import goldSponsor from "../assets/webp/goldsponsor1.webp"; // Replace with actual Gold sponsor logo
+import otherSponsor from "../assets/sponsor2.png";
+import otherSponsor2 from "../assets/othersponsor2.png";
 
 type Sponsor = {
   name: string;
@@ -39,6 +41,21 @@ const goldSponsors: Sponsor[] = [
     alt: "FES Study Abroad",
     logo: goldSponsor,
     website: "https://www.fesstudyabroad.com/",
+  },
+];
+
+const otherSponsors: Sponsor[] = [
+  {
+    name: "Other Sponsor 2",
+    alt: "the Dev Army",
+    logo: otherSponsor,
+    website: "https://www.thedevarmy.com/",
+  },
+  {
+    name: "Other Sponsor 2",
+    alt: "the Dev Army",
+    logo: otherSponsor2,
+    website: "https://company.wolfram.com/press-center/wolfram-corporate/",
   },
 ];
 
@@ -127,6 +144,9 @@ export default function SponsorShowcase() {
 
         {/* Gold Sponsors */}
         <SponsorGrid sponsors={goldSponsors} title="Gold Sponsors" />
+
+        {/* Other Sponsors */}
+        <SponsorGrid sponsors={otherSponsors} title="Other Sponsors" />
       </div>
     </motion.section>
   );
