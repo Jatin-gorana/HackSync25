@@ -13,7 +13,7 @@ const EventTimeline: React.FC = () => {
     {
       day: "Day 1 - 22/02/2025 (Online)",
       events: [
-        { time: "10:00 AM", title: "Inauguration Ceremony" },
+        { time: "9:00 AM", title: "Inauguration Ceremony" },
         { time: "11:00 AM", title: "Hacking Begins" },
       ],
     },

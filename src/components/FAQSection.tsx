@@ -5,17 +5,23 @@ const faqs = [
   {
     question: "When and where will 'HackSync 2025' take place?",
     answer:
-      "Hackathon begins on 22nd February 2025 at 10:00 AM to 24th February 2025 10:00 AM and the Final Round will be offline on 25th February 2025 at Thadomal Shahani Engineering College, Bandra, Mumbai.",
+      "Hackathon begins on 22nd February 2025 at 11:00 AM to 24th February 2025 11:00 AM and the Final Round will be offline on 25th February 2025 at Thadomal Shahani Engineering College, Bandra, Mumbai.",
   },
   {
     question: "What is the last date for registration?",
     answer:
-      "Registrations close on 15th February 2025 at 11:59 PM IST.",
+      "Registrations close on 19th February 2025 at 3:00 PM IST.",
   },
   {
     question: "Can I participate individually?",
     answer:
-      "Teams of 2-4 members. You can come with a team or find teammates via whatsapp group given below.",
+    <>
+    Teams of 2-4 members. Don't have a team? No problem, we got you! Find teammates on our WhatsApp Group.
+    <br />
+    <a className="text-blue-500" href="https://chat.whatsapp.com/EO2OvVOMhdwIFKOVwwyEyq" target="_blank" rel="noopener noreferrer">
+      Group Link
+    </a>
+  </>
   },
   {
     question: "How can I register for 'HackSync 2025' and is there a registration fee?",
@@ -25,7 +31,7 @@ const faqs = [
   {
     question: "Can we form intercollege team?",
     answer:
-      "Yes Intercollege teams are allowed.",
+      "Yes Intercollege teams are allowed. ",
   },
   {
     question: "Will there be prizes?",

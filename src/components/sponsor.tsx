@@ -5,7 +5,9 @@ import ethindia from "../assets/webp/ethindia-light.webp";
 import polygon from "../assets/webp/Polygon_Logo-White.webp";
 import goldSponsor from "../assets/webp/goldsponsor1.webp"; // Replace with actual Gold sponsor logo
 import otherSponsor from "../assets/sponsor2.png";
-import otherSponsor2 from "../assets/othersponsor2.png";
+import otherSponsor2 from "../assets/wolfram.jpg";
+import otherSponsor3 from "../assets/firegig.jpg";
+import otherSponsor4 from "../assets/nanu2.png";
 
 type Sponsor = {
   name: string;
@@ -26,13 +28,7 @@ const platinumSponsors: Sponsor[] = [
     alt: "ETHINDIA LOGO",
     logo: ethindia,
     website: "https://ethindia.co",
-  },
-  {
-    name: "Polygon",
-    alt: "POLYGON LOGO",
-    logo: polygon,
-    website: "https://polygon.technology",
-  },
+  }
 ];
 
 const goldSponsors: Sponsor[] = [
@@ -55,7 +51,19 @@ const otherSponsors: Sponsor[] = [
     name: "Other Sponsor 2",
     alt: "the Dev Army",
     logo: otherSponsor2,
-    website: "https://company.wolfram.com/press-center/wolfram-corporate/",
+    website: "https://www.wolfram.com",
+  },
+  {
+    name: "Other Sponsor 3",
+    alt: "FYRE GIG",
+    logo: otherSponsor3,
+    website: "https://www.firegig.com",
+  },
+  {
+    name: "Other Sponsor 4",
+    alt: "NANU HOSPITALITY SERVICES",
+    logo: otherSponsor4,
+    website: "",
   },
 ];
 

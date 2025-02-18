@@ -36,16 +36,19 @@ const prizes = [
     title: "1st Place",
     amount: "₹15,000",
     icon: <Trophy className="w-16 h-16 text-yellow-500" />,
+    text: "Internship opportunity at Fyre Gig"
   },
   {
     title: "2nd Place",
     amount: "₹10,000",
     icon: <Trophy className="w-14 h-14 text-gray-400" />,
+    text: "Internship opportunity at Fyre Gig"
   },
   {
     title: "3rd Place",
     amount: "₹5,000",
     icon: <Trophy className="w-12 h-12 text-orange-500" />,
+    text: "Internship opportunity at Fire Gig"
   },
 ];
 
@@ -107,6 +110,7 @@ const DomainsSection: React.FC = () => {
               {prize.icon}
               <h3 className="text-2xl font-bold mt-4">{prize.title}</h3>
               <p className="text-lg text-gray-400">{prize.amount}</p>
+              <p className="text-lg text-gray-400">{prize.text}</p>
             </motion.div>
           ))}
         </motion.div>
