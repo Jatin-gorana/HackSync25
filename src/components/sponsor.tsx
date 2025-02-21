@@ -57,7 +57,7 @@ const otherSponsors: Sponsor[] = [
     name: "Other Sponsor 3",
     alt: "FYRE GIG",
     logo: otherSponsor3,
-    website: "https://www.firegig.com",
+    website: "https://www.fyregig.com",
   },
   {
     name: "Other Sponsor 4",
